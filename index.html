@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link href="style/style.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+        <script
+            src="https://kit.fontawesome.com/545163d5d6.js"
+            crossorigin="anonymous"
+        ></script>
+    <title>Les petits plats</title>
+    </head>
+    <body>
+        <header>
+            <img src="" alt="">
+            <h1>Les petits plats</h1>
+        </header>
+        <main>
+            <section>
+                <!-- Bar de recherche -->
+                <input type="text" placeholder="Rechercher une recette">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </section>
+            <section class="tags">
+                <!-- Tags -->
+                <div class="tag__ingredients"></div>
+                <div class="tag__appliances"></div>
+                <div class="tag__ustensils"></div>
+            </section>
+            <section class="filters">
+                <!-- Filtres -->
+                <div class="filters__ingredients"></div>
+                <div class="filters__appliances"></div>
+                <div class="filters__ustensils"></div>
+            </section>
+
+            <section class="recipes__cards--all">
+                <!-- Cartes des recettes-->
+            </section>
+        </main>
+        <script src="./scripts/factories/recipes.js"></script>
+        <script src="./scripts/pages/index.js"></script>
+    </body>
+</html>
