@@ -1,4 +1,5 @@
-class Recipes{
+
+export class Recipe{
 
     constructor(data){
         this._id = data.id
@@ -11,17 +12,38 @@ class Recipes{
         this._ustensils = data.ustensils
     }
 
-    createhtmlRecipesCards(){
+    createhtmlRecipeCard(){
         return`
         <div class="recipes__cards">
         <div class="imgcards__containers"></div>
         <div class="recipescards__containers">
         <h2>${this._name}</h2>
         <p><i class="fa-regular fa-clock"></i> ${this._time} min</p>
-        <p>${this._ingredients}</p>
+        <p>${this.createIngrediants()}</p>
         <p>${this._description}</p>
         </div>
         </div>`
+    }
+
+    createIngrediants(){
+        let html = ""
+        console.log(this._ingredients)
+        this._ingredients.forEach(element => {
+            console.log(element)
+            
+            let ingredient = ""
+            let quantity = ""
+            let unit = ""
+            if(element.unit){
+                unit = element.unit
+            }
+            if(element.quantity){
+                quantity = element.quantity
+            }
+            html += `${element.ingredient} : ${quantity}${unit}`
+        });
+        console.log(html)
+        return html
     }
 
 }
