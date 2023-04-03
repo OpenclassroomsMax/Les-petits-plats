@@ -12,6 +12,7 @@ export class Recipe{
         this._ustensils = data.ustensils
     }
 
+    /*Création de la carte de la recette*/
     createhtmlRecipeCard(){
         return`
         <div class="recipes__cards">
@@ -25,6 +26,7 @@ export class Recipe{
         </div>`
     }
 
+    /*Création de la liste des ingrediants pour l'affichache */
     createIngrediants(){
         let html = ""
         console.log(this._ingredients)

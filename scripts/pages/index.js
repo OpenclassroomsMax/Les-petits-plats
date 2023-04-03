@@ -1,7 +1,7 @@
 import { recipes } from "../../data/recipes.js"
 import { Recipe } from "../factories/recipes.js"
 
-
+/*Afficher les Données*/
 async function displayData(data) {
     const recipesSectionCards = document.querySelector(".recipes__cards--all");
     data.forEach((recipes) => {
@@ -12,8 +12,7 @@ async function displayData(data) {
 }
 
 async function init() {
-    // Récupère les datas des photographes
-   /* const  recipes  = await getRecipes();*/
+    // Récupère les datas des recettes
    console.log(recipes)
     displayData(recipes);
 }
