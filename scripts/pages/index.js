@@ -1,5 +1,6 @@
 import { recipes } from "../../data/recipes.js"
 import { Recipe } from "../factories/recipes.js"
+import { search } from "../utils/search_input.js"
 
 /*Afficher les Données*/
 async function displayData(data) {
@@ -15,6 +16,9 @@ async function init() {
     // Récupère les datas des recettes
    console.log(recipes)
     displayData(recipes);
+
 }
+
+
 
 init();
