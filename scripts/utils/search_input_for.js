@@ -12,23 +12,25 @@ export function search() {
     contentInput = searchInput.value.trim().toLowerCase();
     console.log(recipes);
 
-    recipesToDisplay = recipes.filter((recipe) => {
+    for (let i = 0; i < recipes.length; i++) {
       let recipeIsMatching = false;
-      /*console.log(recipe.name);
-      console.log(contentInput);*/
-      if (recipe.name.toLowerCase().includes(contentInput)) {
+      if (recipes[i].name.toLowerCase().includes(contentInput)) {
         recipeIsMatching = true;
-      } else if (recipe.description.toLowerCase().includes(contentInput)) {
+      } else if (recipes[i].description.toLowerCase().includes(contentInput)) {
         recipeIsMatching = true;
       }
-      recipe.ingredients.forEach(({ ingredient }) => {
-        if (ingredient.toLowerCase().includes(contentInput)) {
+      for (let j = 0; j < recipes[i].ingredients.length; j++) {
+        console.log(recipes[i].ingredients[j].ingredient.toLowerCase());
+        console.log(contentInput);
+        if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(contentInput)) {
           recipeIsMatching = true;
         }
-      });
-      return recipeIsMatching;
-    });
-    console.log(recipesToDisplay);
+      }
+      if (recipeIsMatching === true) {
+        recipesToDisplay.push(recipes[i]);
+      }
+    }
+    
   }
   if (recipesToDisplay.length > 0) {
     noResultMessage.innerHTML = "";

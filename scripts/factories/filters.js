@@ -48,3 +48,5 @@ export class FilterInterface{
         </div>`
     }
 }
+
+/*deuxième avec boucle for*/
