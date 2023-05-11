@@ -7,7 +7,27 @@ body {
     text-align: center;
     color: #D04F4F;
 }
-
+/*Bar de recherche*/
+.section__search{
+    display: flex;
+}
+.search__input{
+    width: 90%;
+    border-color: transparent;
+    border-radius: 5px 0px 0px 5px;
+    background: #E7E7E7;
+    font-weight: 400;
+    padding: 15px;
+}
+.search__input:focus{
+    outline: none;
+}
+.search__button{
+    width: 10%;
+    border-color: transparent;
+    border-radius: 0px 5px 5px 0px;
+    background: #E7E7E7;
+}
 
 /*Typographie*/
 .text__DMSans{
