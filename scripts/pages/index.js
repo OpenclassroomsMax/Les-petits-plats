@@ -23,6 +23,24 @@ export function displayData(data) {
     const filterDOM = filterModel.filterIngredients();
     filtersIngredientsSection.innerHTML=filtersIngredientsSection.innerHTML+(filterDOM);*/
 }
+export function filterIngredientsDOM(){
+    const filtersIngredientsSection = document.querySelector(".filters__ingredients")
+    const filterModel = new FilterInterface(recipes);
+    const filterDOM = filterModel.filterIngredients();
+    filtersIngredientsSection.innerHTML=filtersIngredientsSection.innerHTML+(filterDOM);
+}
+export function filterAppareilsDOM(){
+    const filtersAppareilsSection = document.querySelector(".filters__appliances")
+    const filterModel = new FilterInterface(recipes);
+    const filterDOM = filterModel.filterAppareils();
+    filtersAppareilsSection.innerHTML=filtersAppareilsSection.innerHTML+(filterDOM);
+}
+export function filterUstensilsDOM(){
+    const filtersUstensilsSection = document.querySelector(".filters__ustensils")
+    const filterModel = new FilterInterface(recipes);
+    const filterDOM = filterModel.filterUstensils();
+    filtersUstensilsSection.innerHTML=filtersUstensilsSection.innerHTML+(filterDOM);
+}
  
 function generateDropBox(data){
     const ingredientsBloc = document.querySelector('.filter__ingredients--list');
@@ -78,6 +96,9 @@ async function init() {
     // Récupère les datas des recettes
     console.log(recipes)
     displayData(recipes);
+    filterIngredientsDOM();
+    filterAppareilsDOM();
+    filterUstensilsDOM();
     generateDropBox(recipes);
 
 }

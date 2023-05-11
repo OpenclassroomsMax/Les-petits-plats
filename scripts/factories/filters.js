@@ -14,7 +14,7 @@ export class FilterInterface{
     filterIngredients(){
         return`
         <div class="filter__ingredients--bloc">
-            <h2 class="filter__ingredients--title" style="display: flex;">Ingredients</h2>
+            <h2 class="filter__ingredients--title text__Lato" style="display: flex;">Ingredients</h2>
             <i class="fa-solid fa-chevron-down filter__ingredients--chevronDown" style="display: flex;"></i>
             <i class="fa-solid fa-chevron-up filter__ingredients--chevronUp" style="display: none;"></i>
             <input placeholder="Sélectionner un ingredients..." class="filter__ingredients--input" data-np-intersection-state="visible" style="display: none;">
@@ -61,7 +61,7 @@ export class FilterInterface{
     filterAppareils(){
         return`
         <div class="filter__appliances--bloc">
-            <h2 class="filter__appliances--title" style="display: flex;">appliances</h2>
+            <h2 class="filter__appliances--title text__Lato" style="display: flex;">Appareils</h2>
             <i class="fa-solid fa-chevron-down filter__appliances--chevronDown" style="display: flex;"></i>
             <i class="fa-solid fa-chevron-up filter__appliances--chevronUp" style="display: none;"></i>
             <input placeholder="Sélectionner un appareils..." class="filter__appliances--input" data-np-intersection-state="visible" style="display: none;">
@@ -108,7 +108,7 @@ export class FilterInterface{
     filterUstensils(){
         return`
         <div class="filter__ustensils--bloc">
-            <h2 class="filter__ustensils--title" style="display: flex;">ustensils</h2>
+            <h2 class="filter__ustensils--title text__Lato" style="display: flex;">Ustensiles</h2>
             <i class="fa-solid fa-chevron-down filter__ustensils--chevronDown" style="display: flex;"></i>
             <i class="fa-solid fa-chevron-up filter__ustensils--chevronUp" style="display: none;"></i>
             <input placeholder="Sélectionner un ustensils..." class="filter__ustensils--input" data-np-intersection-state="visible" style="display: none;">

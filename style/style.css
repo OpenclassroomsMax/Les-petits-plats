@@ -44,6 +44,63 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/*tout les filtres*/
+section.filters {
+    display: flex;
+    width: 75%;
+    margin-top: 20px;
+}
+/*filtre ingredients*/
+.filters__ingredients {
+    width: 20%;
+    
+}
+.filter__ingredients--bloc {
+    display: flex;
+    align-items: center;
+    background-color: #3282F7;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-between;
+}
+.filter__ingredients--title{
+    font-size: 18px;
+}
+/*filtre appareils*/
+.filters__appliances {
+    width: 20%;
+    margin-left: 20px;
+}
+.filter__appliances--bloc {
+    display: flex;
+    align-items: center;
+    background-color: #68D9A4;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-between;
+}
+.filter__appliances--title{
+    font-size: 18px;
+}
+/*filtre ustensils*/
+.filters__ustensils {
+    width: 20%;
+    margin-left: 20px;
+}
+.filter__ustensils--bloc {
+    display: flex;
+    align-items: center;
+    background-color: #ED6454;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-between;
+}
+.filter__ustensils--title{
+    font-size: 18px;
+}
 /*Carte des recettes*/
 section.recipes__cards--all {
     display: flex;
@@ -53,7 +110,6 @@ section.recipes__cards--all {
 .recipes__cards {
     width: 27%;
     margin-top: 50px;
-    
 }
 .imgcards__containers{
     height: 178px;
