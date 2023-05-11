@@ -52,6 +52,7 @@ section.recipes__cards--all {
 }
 .recipes__cards {
     width: 27%;
+    margin-top: 50px;
     
 }
 .imgcards__containers{
@@ -63,6 +64,7 @@ section.recipes__cards--all {
     background-color: #E7E7E7;
     border-radius: 0px 0px 5px 5px;
     padding: 15px;
+    height: 50%;
 }
 /*En tête de la carte*/
 .header__cards {
@@ -74,9 +76,11 @@ section.recipes__cards--all {
     font-weight: 400;
     margin-top: 0px;
     font-size: 18px;
+    width: 60%;
 }
 .timer__cards{
     font-weight: 700;
+    margin-top: 0px;
 }
 /*Ingrediants et description de la carte*/
 .info__cards{
@@ -85,8 +89,17 @@ section.recipes__cards--all {
 }
 .ingrediants__cards{
     font-weight: 700;
-    font-size: 12px;
+    font-size: 10px;
+    width: 40%;
+    margin: 0px;
 }
-.description__cards{
+.description__cards {
     font-size: 12px;
+    width: 50%;
+    margin: 0px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    margin-left: 30px;
 }
