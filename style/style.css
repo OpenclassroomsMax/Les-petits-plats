@@ -2,6 +2,23 @@ body {
     margin-right: 100px;
     margin-left: 100px;
 }
+/*Style header logo et titre*/
+.header__blocs{
+    text-align: center;
+    color: #D04F4F;
+}
+
+
+/*Typographie*/
+.text__DMSans{
+    font-family: 'DM Sans', sans-serif;
+}
+.text__Lato{
+    font-family: 'Lato', sans-serif;
+}
+.text__Roboto{
+    font-family: 'Roboto', sans-serif;
+}
 
 section.recipes__cards--all {
     display: flex;
@@ -13,3 +30,4 @@ section.recipes__cards--all {
     display: flex;
     width: 27%;
 }
+
