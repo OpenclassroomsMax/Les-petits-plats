@@ -16,13 +16,17 @@ export class Recipe{
     createhtmlRecipeCard(){
         return`
         <div class="recipes__cards">
-        <div class="imgcards__containers"></div>
-        <div class="recipescards__containers">
-        <h2>${this._name}</h2>
-        <p><i class="fa-regular fa-clock"></i> ${this._time} min</p>
-        <p>${this.createIngrediants()}</p>
-        <p>${this._description}</p>
-        </div>
+            <div class="imgcards__containers"></div>
+            <div class="recipescards__containers">
+                <div class="header__cards">
+                    <h2 class="title__cards text__Lato">${this._name}</h2>
+                    <p class="timer__cards text__Lato"><i class="fa-sharp fa-regular fa-clock"></i> ${this._time} min</p>
+                </div>
+                <div class="info__cards">
+                    <p class="ingrediants__cards text__Lato">${this.createIngrediants()}</p>
+                    <p class="description__cards text__Roboto">${this._description}</p>
+                </div>
+            </div>
         </div>`
     }
 

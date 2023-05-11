@@ -44,14 +44,49 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/*Carte des recettes*/
 section.recipes__cards--all {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
 .recipes__cards {
-    display: flex;
     width: 27%;
+    
 }
-
+.imgcards__containers{
+    height: 178px;
+    background: #C7BEBE;
+    border-radius: 5px 5px 0px 0px;
+}
+.recipescards__containers {
+    background-color: #E7E7E7;
+    border-radius: 0px 0px 5px 5px;
+    padding: 15px;
+}
+/*En tête de la carte*/
+.header__cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title__cards{
+    font-weight: 400;
+    margin-top: 0px;
+    font-size: 18px;
+}
+.timer__cards{
+    font-weight: 700;
+}
+/*Ingrediants et description de la carte*/
+.info__cards{
+    display: flex;
+    
+}
+.ingrediants__cards{
+    font-weight: 700;
+    font-size: 12px;
+}
+.description__cards{
+    font-size: 12px;
+}
