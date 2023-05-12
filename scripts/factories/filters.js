@@ -16,8 +16,10 @@ export class FilterInterface{
         <div class="filter__ingredients--bloc">
             <h2 class="filter__ingredients--title text__Lato" style="display: flex;">Ingredients</h2>
             <i class="fa-solid fa-chevron-down filter__ingredients--chevronDown" style="display: flex;"></i>
-            <i class="fa-solid fa-chevron-up filter__ingredients--chevronUp" style="display: none;"></i>
-            <input placeholder="Sélectionner un ingredients..." class="filter__ingredients--input" data-np-intersection-state="visible" style="display: none;">
+            <div class = "header__filtre--ingredients">
+                <input placeholder="Sélectionner un ingredients..." class="filter__ingredients--input" data-np-intersection-state="visible" style="display: none;">
+                <i class="fa-solid fa-chevron-up filter__ingredients--chevronUp" style="display: none;"></i>
+            </div>
             <ul class="filter__ingredients--list" style="display: none;"></ul>
         </div>`
     }

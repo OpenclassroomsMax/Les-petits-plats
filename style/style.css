@@ -67,6 +67,15 @@ section.filters {
 .filter__ingredients--title{
     font-size: 18px;
 }
+
+.header__filtre--ingredients {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+input.filter__ingredients--input {
+    width: 100%;
+}
 /*filtre appareils*/
 .filters__appliances {
     width: 20%;

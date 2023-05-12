@@ -29,6 +29,46 @@ export function filterIngredientsDOM(){
     const filterDOM = filterModel.filterIngredients();
     filtersIngredientsSection.innerHTML=filtersIngredientsSection.innerHTML+(filterDOM);
 }
+export  function filterIngredientsEvent(){
+    const Ingredients = document.querySelector('.filters__ingredients');
+    const BlocIngredients = document.querySelector('.filter__ingredients--bloc');
+    const titleIngredients = document.querySelector('.filter__ingredients--title');
+    const chevronDownIngredients = document.querySelector('.filter__ingredients--chevronDown');
+    const chevronUpIngredients = document.querySelector('.filter__ingredients--chevronUp');
+    const inputIngredients = document.querySelector('.filter__ingredients--input');
+    const listIngredients = document.querySelector('.filter__ingredients--list');
+
+    chevronDownIngredients.addEventListener('click', (e) => {
+        if (e.target.className === 'fa-solid fa-chevron-down filter__ingredients--chevronDown') {
+            BlocIngredients.classList.remove('filter__ingredients--bloc');
+            BlocIngredients.classList.add('filter__ingredients--view');
+            Ingredients.style.width= '70%';
+            titleIngredients.style.display = 'none';
+            chevronDownIngredients.style.display = 'none';
+            inputIngredients.style.display = 'flex';
+            chevronUpIngredients.style.display = 'flex';
+            listIngredients.style.display = 'flex';
+            inputIngredients.focus();
+          
+        }
+        
+    });
+    chevronUpIngredients.addEventListener('click', (e) => {
+        if (e.target.className === 'fa-solid fa-chevron-up filter__ingredients--chevronUp') {
+            BlocIngredients.classList.remove('filter__ingredients--view');
+            BlocIngredients.classList.add('filter__ingredients--bloc');
+            Ingredients.style.width= '';
+            titleIngredients.style.display = 'flex';
+            inputIngredients.style.display = 'none';
+            chevronDownIngredients.style.display = 'flex';
+            chevronUpIngredients.style.display = 'none';
+            listIngredients.style.display = 'none';
+    
+        }
+      });
+    return (BlocIngredients)
+}
+
 export function filterAppareilsDOM(){
     const filtersAppareilsSection = document.querySelector(".filters__appliances")
     const filterModel = new FilterInterface(recipes);
@@ -69,17 +109,18 @@ function generateDropBox(data){
         
         recipe.ingredients.forEach (ingredient =>{
             console.log(ingredient.ingredient);
-            if (ingredientsList.includes(ingredient) === false) {
-                ingredientsList.push(ingredient);
+            if (ingredientsList.includes(ingredient.ingredient) === false) {
+                ingredientsList.push(ingredient.ingredient);
                 const filterListIngredients = document.createElement('li');
                 filterListIngredients.classList.add('filter__ingredients--items');
-                filterListIngredients.innerText = ingredient;
+                filterListIngredients.innerText = ingredient.ingredient;
                 ingredientsBloc.appendChild(filterListIngredients);
             }
         })
+        console.log(ingredientsList);
 
-        recipe.ustensils.forEach (ustensiles =>{
-            console.log(ustensiles);
+
+        recipe.ustensils.forEach (ustensil =>{
             if (ustensilsList.includes(ustensil) === false) {
                 ustensilsList.push(ustensil);
                 const filterItem = document.createElement('li');
@@ -97,6 +138,7 @@ async function init() {
     console.log(recipes)
     displayData(recipes);
     filterIngredientsDOM();
+    filterIngredientsEvent();
     filterAppareilsDOM();
     filterUstensilsDOM();
     generateDropBox(recipes);
