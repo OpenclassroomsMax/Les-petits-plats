@@ -1,7 +1,9 @@
 import { recipes } from "../../data/recipes.js"
 import { Recipe } from "../factories/recipes.js"
-import { search } from "../utils/search_input_for.js"
+import { search } from "../utils/search_input.js"
 import { FilterInterface } from "../factories/filters.js"
+import { addTagFilterIngredients } from "../utils/tags.js"
+import { inputIngredient } from "../utils/filters_inputs.js"
 
 /*Afficher les Données*/
 export function displayData(data) {
@@ -49,8 +51,10 @@ export  function filterIngredientsEvent(){
             chevronUpIngredients.style.display = 'flex';
             listIngredients.style.display = 'flex';
             inputIngredients.focus();
+            inputIngredient();
           
         }
+        addTagFilterIngredients();
         
     });
     chevronUpIngredients.addEventListener('click', (e) => {
@@ -69,6 +73,7 @@ export  function filterIngredientsEvent(){
     return (BlocIngredients)
 }
 
+
 export function filterAppareilsDOM(){
     const filtersAppareilsSection = document.querySelector(".filters__appliances")
     const filterModel = new FilterInterface(recipes);
@@ -82,7 +87,7 @@ export function filterUstensilsDOM(){
     filtersUstensilsSection.innerHTML=filtersUstensilsSection.innerHTML+(filterDOM);
 }
  
-function generateDropBox(data){
+export function generateDropBox(data){
     const ingredientsBloc = document.querySelector('.filter__ingredients--list');
     const appliancesBloc = document.querySelector('.filter__appliances--list');
     const ustensilsBloc = document.querySelector('.filter__ustensils--list');
@@ -99,6 +104,7 @@ function generateDropBox(data){
         console.log(recipe);
 
         console.log(recipe.appliance);
+        
         if (appliancesList.includes(recipe.appliance) === false) {
             appliancesList.push(recipe.appliance);
             const filterListAppliances = document.createElement('li');
@@ -109,7 +115,8 @@ function generateDropBox(data){
         
         recipe.ingredients.forEach (ingredient =>{
             console.log(ingredient.ingredient);
-            if (ingredientsList.includes(ingredient.ingredient) === false) {
+            const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
+            if (ingredientsList.includes(ingredient.ingredient) === false && itags.includes(ingredient) === false) {
                 ingredientsList.push(ingredient.ingredient);
                 const filterListIngredients = document.createElement('li');
                 filterListIngredients.classList.add('filter__ingredients--items');
@@ -131,6 +138,8 @@ function generateDropBox(data){
         })
 
     });
+
+    addTagFilterIngredients();
 }
 
 async function init() {

@@ -1,10 +1,12 @@
 import { displayData } from "../pages/index.js";
 import { recipes } from "../../data/recipes.js";
+import { filteredRecipesWithTags } from "../utils/tags.js"
 
 const searchInput = document.querySelector(".search__input");
 const noResultMessage = document.querySelector(".no-result-message");
 
 export function search() {
+  let tagsUsed = false;
   let recipesToDisplay = [];
   let contentInput;
   console.log(searchInput.value.length);
@@ -29,6 +31,14 @@ export function search() {
       return recipeIsMatching;
     });
     console.log(recipesToDisplay);
+  }
+  if (Array.from(document.querySelectorAll('.tag__ingredients .tag__ingredient .tag-blue')).length > 0) {
+    tagsUsed = true;
+    if (recipesToDisplay.length > 0) {
+      recipesToDisplay = filteredRecipesWithTags(recipesToDisplay);
+    } else {
+    recipesToDisplay = filteredRecipesWithTags(recipes);
+    }
   }
   if (recipesToDisplay.length > 0) {
     noResultMessage.innerHTML = "";
