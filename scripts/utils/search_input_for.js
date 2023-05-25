@@ -34,13 +34,17 @@ export function search() {
   }
   if (recipesToDisplay.length > 0) {
     noResultMessage.innerHTML = "";
+    console.log("2");
+
     displayData(recipesToDisplay);
   } else {
+    console.log("3");
     displayData(recipesToDisplay);
     noResultMessage.innerHTML = "<p>Aucune recette ne correspond</p>";
   }
 
   if (searchInput.value === "" || searchInput.value.length < 3) {
+    console.log("4");
     displayData(recipes);
     noResultMessage.innerHTML = "";
   }

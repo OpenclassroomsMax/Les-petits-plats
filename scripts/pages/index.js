@@ -1,9 +1,16 @@
 import { recipes } from "../../data/recipes.js"
 import { Recipe } from "../factories/recipes.js"
-import { search } from "../utils/search_input.js"
 import { FilterInterface } from "../factories/filters.js"
 import { addTagFilterIngredients } from "../utils/tags.js"
 import { inputIngredient } from "../utils/filters_inputs.js"
+import { addTagFilterAppliances } from "../utils/tags.js"
+import { inputAppliance } from "../utils/filters_inputs.js"
+import { addTagFilterUstensils } from "../utils/tags.js"
+import { inputUstensil } from "../utils/filters_inputs.js"
+
+/*import { tagIngredientAlreadyAdded } from "../utils/tags.js"*/
+
+
 
 /*Afficher les Données*/
 export function displayData(data) {
@@ -13,6 +20,7 @@ export function displayData(data) {
     const filtersUstensilsSection = document.querySelector(".filters__ustensils")*/
     recipesSectionCards.innerHTML="";
     console.log(data);
+    
     data.forEach((recipes) => {
         
         const recipesModel = new Recipe(recipes);
@@ -80,11 +88,94 @@ export function filterAppareilsDOM(){
     const filterDOM = filterModel.filterAppareils();
     filtersAppareilsSection.innerHTML=filtersAppareilsSection.innerHTML+(filterDOM);
 }
+
+export function filterAppliancesEvent(){
+    const Appareils = document.querySelector(".filters__appliances")
+    const BlocAppliances = document.querySelector('.filter__appliances--bloc');
+    const titleAppliances = document.querySelector('.filter__appliances--title');
+    const chevronDownAppliances = document.querySelector('.filter__appliances--chevronDown');
+    const chevronUpAppliances = document.querySelector('.filter__appliances--chevronUp');
+    const inputAppliances = document.querySelector('.filter__appliances--input');
+    const listAppliances = document.querySelector('.filter__appliances--list');
+
+    chevronDownAppliances.addEventListener('click', (e) => {
+        if (e.target.className === 'fa-solid fa-chevron-down filter__appliances--chevronDown') {
+            BlocAppliances.classList.remove('filter__appliances--bloc');
+            BlocAppliances.classList.add('filter__appliances--view');
+            Appareils.style.width= '70%';
+            titleAppliances.style.display = 'none';
+            chevronDownAppliances.style.display = 'none';
+            inputAppliances.style.display = 'flex';
+            chevronUpAppliances.style.display = 'flex';
+            listAppliances.style.display = 'flex';
+            inputAppliances.focus();
+            inputAppliance();
+          
+        }
+        addTagFilterAppliances();
+    });
+    chevronUpAppliances.addEventListener('click', (e) => {
+        if (e.target.className === 'fa-solid fa-chevron-up filter__appliances--chevronUp') {
+            BlocAppliances.classList.remove('filter__appliances--view');
+            BlocAppliances.classList.add('filter__appliances--bloc');
+            Appareils.style.width= '';
+            titleAppliances.style.display = 'flex';
+            inputAppliances.style.display = 'none';
+            chevronDownAppliances.style.display = 'flex';
+            chevronUpAppliances.style.display = 'none';
+            listAppliances.style.display = 'none';
+    
+        }
+      });
+      return (BlocAppliances)
+}
+
+
 export function filterUstensilsDOM(){
     const filtersUstensilsSection = document.querySelector(".filters__ustensils")
     const filterModel = new FilterInterface(recipes);
     const filterDOM = filterModel.filterUstensils();
     filtersUstensilsSection.innerHTML=filtersUstensilsSection.innerHTML+(filterDOM);
+}
+export function filterUstensilsEvent(){
+    const Ustensils = document.querySelector(".filters__ustensils")
+    const BlocUstensils = document.querySelector('.filter__ustensils--bloc');
+    const titleUstensils = document.querySelector('.filter__ustensils--title');
+    const chevronDownUstensils = document.querySelector('.filter__ustensils--chevronDown');
+    const chevronUpUstensils = document.querySelector('.filter__ustensils--chevronUp');
+    const inputUstensils = document.querySelector('.filter__ustensils--input');
+    const listUstensils = document.querySelector('.filter__ustensils--list');
+
+    chevronDownUstensils.addEventListener('click', (e) => {
+        if (e.target.className === 'fa-solid fa-chevron-down filter__ustensils--chevronDown') {
+            BlocUstensils.classList.remove('filter__ustensils--bloc');
+            BlocUstensils.classList.add('filter__ustensils--view');
+            Ustensils.style.width= '70%';
+            titleUstensils.style.display = 'none';
+            chevronDownUstensils.style.display = 'none';
+            inputUstensils.style.display = 'flex';
+            chevronUpUstensils.style.display = 'flex';
+            listUstensils.style.display = 'flex';
+            inputUstensils.focus();
+            inputUstensil();
+          
+        }
+        addTagFilterUstensils();
+    });
+    chevronUpUstensils.addEventListener('click', (e) => {
+        if (e.target.className === 'fa-solid fa-chevron-up filter__ustensils--chevronUp') {
+            BlocUstensils.classList.remove('filter__ustensils--view');
+            BlocUstensils.classList.add('filter__ustensils--bloc');
+            Ustensils.style.width= '';
+            titleUstensils.style.display = 'flex';
+            inputUstensils.style.display = 'none';
+            chevronDownUstensils.style.display = 'flex';
+            chevronUpUstensils.style.display = 'none';
+            listUstensils.style.display = 'none';
+    
+        }
+      });
+      return (BlocUstensils)
 }
  
 export function generateDropBox(data){
@@ -101,11 +192,12 @@ export function generateDropBox(data){
     ustensilsBloc.innerHTML = '';
 
     data.forEach( recipe =>{
-        console.log(recipe);
+        /*console.log(recipe);*/
 
-        console.log(recipe.appliance);
-        
-        if (appliancesList.includes(recipe.appliance) === false) {
+        /*console.log(recipe.appliance);*/
+        const atags = [...document.querySelectorAll('.tag__appliance')].map( (atag) => atag.innerText);
+
+        if (appliancesList.includes(recipe.appliance) === false && atags.includes(recipe.appliance) === false) {
             appliancesList.push(recipe.appliance);
             const filterListAppliances = document.createElement('li');
             filterListAppliances.classList.add('filter__appliances--items');
@@ -114,7 +206,7 @@ export function generateDropBox(data){
         }
         
         recipe.ingredients.forEach (ingredient =>{
-            console.log(ingredient.ingredient);
+            /*console.log(ingredient.ingredient);*/
             const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
             if (ingredientsList.includes(ingredient.ingredient) === false && itags.includes(ingredient) === false) {
                 ingredientsList.push(ingredient.ingredient);
@@ -124,11 +216,11 @@ export function generateDropBox(data){
                 ingredientsBloc.appendChild(filterListIngredients);
             }
         })
-        console.log(ingredientsList);
+        /*console.log(ingredientsList);*/
 
-
+        const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
         recipe.ustensils.forEach (ustensil =>{
-            if (ustensilsList.includes(ustensil) === false) {
+            if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
                 ustensilsList.push(ustensil);
                 const filterItem = document.createElement('li');
                 filterItem.classList.add('filter__ustensils--items');
@@ -138,19 +230,76 @@ export function generateDropBox(data){
         })
 
     });
-
     addTagFilterIngredients();
+    addTagFilterAppliances();
+    addTagFilterUstensils();
 }
+function isArrowClicked() {
+  
+    const arrowDownIngredient = document.querySelector('.filter__ingredients--chevronDown');
+    const arrowDownAppliance = document.querySelector('.filter__appliances--chevronDown');
+    const arrowDownUstensil = document.querySelector('.filter__ustensils--chevronDown');
+  
+    let ingredientCloseElt;
+    let ingredientArrowUp;
+    let applianceCloseElt;
+    let applianceArrowUp;
+    let ustensilCloseElt;
+    let ustensilArrowUp;
+  
+    arrowDownIngredient.addEventListener('click', () => {
+      applianceCloseElt = document.querySelector('.filter__appliances--view');
+      applianceArrowUp = document.querySelector('.filter__appliances--chevronUp');
+      ustensilCloseElt = document.querySelector('.filter__ustensils--view');
+      ustensilArrowUp = document.querySelector('.filter__ustensils--chevronUp');
+      if (applianceCloseElt != null) {
+        applianceArrowUp.click();
+      }
+      if (ustensilCloseElt != null) {
+        ustensilArrowUp.click();
+      }
+    });
+
+    arrowDownAppliance.addEventListener('click', () => {
+      ustensilCloseElt = document.querySelector('.filter__ustensils--view');
+      ustensilArrowUp = document.querySelector('.filter__ustensils--chevronUp');
+      ingredientCloseElt = document.querySelector('.filter__ingredients--view');
+      ingredientArrowUp = document.querySelector('.filter__ingredients--chevronUp');
+      if (ustensilCloseElt != null) {
+        ustensilArrowUp.click();
+      }
+      if (ingredientCloseElt != null) {
+        ingredientArrowUp.click();
+      }
+    });
+  
+    arrowDownUstensil.addEventListener('click', () => {
+      ingredientCloseElt = document.querySelector('.filter__ingredients--view');
+      ingredientArrowUp = document.querySelector('.filter__ingredients--chevronUp');
+      applianceCloseElt = document.querySelector('.filter__appliances--view');
+      applianceArrowUp = document.querySelector('.filter__appliances--chevronUp');
+      if (ingredientCloseElt != null) {
+        ingredientArrowUp.click();
+        }
+      if (applianceCloseElt != null) {
+        applianceArrowUp.click();
+      }  
+    });
+  }
 
 async function init() {
     // Récupère les datas des recettes
-    console.log(recipes)
+    console.log("1");
+
     displayData(recipes);
     filterIngredientsDOM();
     filterIngredientsEvent();
     filterAppareilsDOM();
+    filterAppliancesEvent();
     filterUstensilsDOM();
+    filterUstensilsEvent();
     generateDropBox(recipes);
+    isArrowClicked();
 
 }
 

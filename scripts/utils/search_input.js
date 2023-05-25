@@ -1,6 +1,7 @@
 import { displayData } from "../pages/index.js";
 import { recipes } from "../../data/recipes.js";
 import { filteredRecipesWithTags } from "../utils/tags.js"
+import {generateDropBox} from "../pages/index.js"
 
 const searchInput = document.querySelector(".search__input");
 const noResultMessage = document.querySelector(".no-result-message");
@@ -32,7 +33,9 @@ export function search() {
     });
     console.log(recipesToDisplay);
   }
-  if (Array.from(document.querySelectorAll('.tag__ingredients .tag__ingredient .tag-blue')).length > 0) {
+  if (Array.from(document.querySelectorAll('.tag__ingredients .tag__ingredient .tag-blue')).length > 0
+  || Array.from(document.querySelectorAll('.tag__appliances .tag__appliance .tag-green')).length > 0
+  || Array.from(document.querySelectorAll('.tag__ustensils .tag__ustensil .tag-red')).length > 0) {
     tagsUsed = true;
     if (recipesToDisplay.length > 0) {
       recipesToDisplay = filteredRecipesWithTags(recipesToDisplay);
@@ -42,16 +45,25 @@ export function search() {
   }
   if (recipesToDisplay.length > 0) {
     noResultMessage.innerHTML = "";
+    console.log("2");
+    console.log("generateDropBox");
+    
+    generateDropBox(recipesToDisplay);
+    console.log("displayData");
     displayData(recipesToDisplay);
   } else {
+    console.log("3");
+
     displayData(recipesToDisplay);
     noResultMessage.innerHTML = "<p>Aucune recette ne correspond</p>";
   }
 
-  if (searchInput.value === "" || searchInput.value.length < 3) {
+  /*if (searchInput.value === "" || searchInput.value.length < 3) {
+    console.log("4");
+
     displayData(recipes);
     noResultMessage.innerHTML = "";
-  }
+  }*/
 }
 
 let timer;
