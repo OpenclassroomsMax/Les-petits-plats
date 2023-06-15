@@ -7,6 +7,8 @@ const searchInput = document.querySelector(".search__input");
 const noResultMessage = document.querySelector(".no-result-message");
 
 export function search() {
+  console.log("search");
+  
   let tagsUsed = false;
   let recipesToDisplay = [];
   let contentInput;
@@ -33,9 +35,10 @@ export function search() {
     });
     console.log(recipesToDisplay);
   }
-  if (Array.from(document.querySelectorAll('.tag__ingredients .tag__ingredient .tag-blue')).length > 0
-  || Array.from(document.querySelectorAll('.tag__appliances .tag__appliance .tag-green')).length > 0
-  || Array.from(document.querySelectorAll('.tag__ustensils .tag__ustensil .tag-red')).length > 0) {
+  console.log(document.querySelectorAll('.tag__ingredient'));
+  if (Array.from(document.querySelectorAll('.tag__ingredient')).length > 0
+  || Array.from(document.querySelectorAll('.tag__appliance')).length > 0
+  || Array.from(document.querySelectorAll('.tag__ustensil')).length > 0) {
     tagsUsed = true;
     if (recipesToDisplay.length > 0) {
       recipesToDisplay = filteredRecipesWithTags(recipesToDisplay);

@@ -49,6 +49,7 @@ export  function filterIngredientsEvent(){
     const listIngredients = document.querySelector('.filter__ingredients--list');
 
     chevronDownIngredients.addEventListener('click', (e) => {
+
         if (e.target.className === 'fa-solid fa-chevron-down filter__ingredients--chevronDown') {
             BlocIngredients.classList.remove('filter__ingredients--bloc');
             BlocIngredients.classList.add('filter__ingredients--view');
@@ -62,7 +63,7 @@ export  function filterIngredientsEvent(){
             inputIngredient();
           
         }
-        addTagFilterIngredients();
+        /*addTagFilterIngredients();*/
         
     });
     chevronUpIngredients.addEventListener('click', (e) => {
@@ -112,7 +113,7 @@ export function filterAppliancesEvent(){
             inputAppliance();
           
         }
-        addTagFilterAppliances();
+        /*addTagFilterAppliances();*/
     });
     chevronUpAppliances.addEventListener('click', (e) => {
         if (e.target.className === 'fa-solid fa-chevron-up filter__appliances--chevronUp') {
@@ -160,7 +161,7 @@ export function filterUstensilsEvent(){
             inputUstensil();
           
         }
-        addTagFilterUstensils();
+        /*addTagFilterUstensils();*/
     });
     chevronUpUstensils.addEventListener('click', (e) => {
         if (e.target.className === 'fa-solid fa-chevron-up filter__ustensils--chevronUp') {
@@ -207,15 +208,21 @@ export function generateDropBox(data){
         
         recipe.ingredients.forEach (ingredient =>{
             /*console.log(ingredient.ingredient);*/
+            /*console.log(ingredientsList.sort());*/
+            let ingredientListTri = ingredientsList.sort();
+            /*ingredientListTri.filter((items,index) => ingredientListTri.indexOf(items === index))*/
+            console.log( ingredientListTri.filter((items,index) => ingredientListTri.indexOf(items === index)))
             const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
-            if (ingredientsList.includes(ingredient.ingredient) === false && itags.includes(ingredient) === false) {
-                ingredientsList.push(ingredient.ingredient);
+            if (ingredientListTri.includes(ingredient.ingredient.toLowerCase()) === false && itags.includes(ingredient) === false) {
+                ingredientListTri.push(ingredient.ingredient);
                 const filterListIngredients = document.createElement('li');
                 filterListIngredients.classList.add('filter__ingredients--items');
                 filterListIngredients.innerText = ingredient.ingredient;
                 ingredientsBloc.appendChild(filterListIngredients);
+                console.log(ingredientsBloc)
             }
         })
+        
         /*console.log(ingredientsList);*/
 
         const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)

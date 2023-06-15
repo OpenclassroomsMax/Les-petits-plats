@@ -20,7 +20,7 @@ export class FilterInterface{
                 <input placeholder="Sélectionner un ingredients..." class="filter__ingredients--input" data-np-intersection-state="visible" style="display: none;">
                 <i class="fa-solid fa-chevron-up filter__ingredients--chevronUp" style="display: none;"></i>
             </div>
-            <ul class="filter__ingredients--list" style="display: none;"></ul>
+            <ul class="filter__ingredients--list text__Lato" style="display: none;"></ul>
         </div>`
     }
 
@@ -33,7 +33,7 @@ export class FilterInterface{
                 <input placeholder="Sélectionner un appareils..." class="filter__appliances--input" data-np-intersection-state="visible" style="display: none;">
                 <i class="fa-solid fa-chevron-up filter__appliances--chevronUp" style="display: none;"></i>
             </div>
-            <ul class="filter__appliances--list" style="display: none;"></ul>
+            <ul class="filter__appliances--list text__Lato" style="display: none;"></ul>
         </div>`
     }
    
@@ -46,7 +46,7 @@ export class FilterInterface{
                 <input placeholder="Sélectionner un ustensils..." class="filter__ustensils--input" data-np-intersection-state="visible" style="display: none;">
                 <i class="fa-solid fa-chevron-up filter__ustensils--chevronUp" style="display: none;"></i>
             </div>
-            <ul class="filter__ustensils--list" style="display: none;"></ul>
+            <ul class="filter__ustensils--list text__Lato" style="display: none;"></ul>
         </div>`
     }
 

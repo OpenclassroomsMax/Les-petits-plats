@@ -64,6 +64,7 @@ export function getSearchUstensils() {
 
   ustensilsList.forEach((ustensils) => {
     if (ustensils.innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
+      
       ustensils.classList.remove('is-hidden');
     } else {
       ustensils.classList.add('is-hidden');
