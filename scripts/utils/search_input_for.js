@@ -54,16 +54,17 @@ export function search() {
     displayData(recipesToDisplay);
   } else {
     console.log("3");
-    displayData(recipesToDisplay);
+    displayData(recipes);
+    /*generateDropBox(recipes);*/
     noResultMessage.innerHTML = "<p>Aucune recette ne correspond</p>";
   }
 
-  if (searchInput.value === "" || searchInput.value.length < 3) {
+  /*if (searchInput.value === "" || searchInput.value.length < 3) {
     console.log("4");
     displayData(recipes);
     generateDropBox(recipes);
     noResultMessage.innerHTML = "";
-  }
+  }*/
 }
 
 let timer;

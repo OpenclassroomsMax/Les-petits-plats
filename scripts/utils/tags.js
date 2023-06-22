@@ -54,6 +54,7 @@ export function addTagFilterIngredients() {
                 recipe.ingredients.forEach(({ ingredient }) => {
                   if (ingredient.toLowerCase().includes(contentInput)) {
                     recipeIsMatching = true;
+                    console.log(ingredient.toLowerCase().includes(contentInput));
                   }
                 });
                 return recipeIsMatching;
@@ -99,7 +100,6 @@ export function addTagFilterIngredients() {
           displayData(recipeTab);
           generateDropBox(recipeTab);
 
-/** filtrer la liste en fonction des tags**/
             return false;
           });
           tagIngredientSelect.appendChild(tagIngredientContainer);
@@ -152,11 +152,11 @@ export function addTagFilterAppliances() {
                 } else if (recipe.description.toLowerCase().includes(contentInput)) {
                   recipeIsMatching = true;
                 }
-                recipe.appliance.forEach(({ appareils }) => {
-                  if (appareils.toLowerCase().includes(contentInput)) {
-                    recipeIsMatching = true;
-                  }
-                });
+                
+                if (recipe.appliance.toLowerCase().includes(contentInput)) {
+                  recipeIsMatching = true;
+                }
+      
                 return recipeIsMatching;
               });
             }
@@ -238,7 +238,7 @@ export function addTagFilterUstensils() {
               } else if (recipe.description.toLowerCase().includes(contentInput)) {
                 recipeIsMatching = true;
               }
-              recipe.ustensils.forEach(({ ustensil }) => {
+              recipe.ustensils.forEach(( ustensil ) => {
                 if (ustensil.toLowerCase().includes(contentInput)) {
                   recipeIsMatching = true;
                 }
@@ -258,14 +258,15 @@ export function addTagFilterUstensils() {
             /*filtrer le recipeTab par rapport au tags restant parcourir le tableau*/
     
             listeTag.forEach(({ tag }) => {
-              console.log(tag.innerText);
               recipeTab = [...recipeTab.filter((recipe) => {
-                recipe.ustensils.forEach(({ ustensil }) => {
+                let ustensilsMatching = false;
+                recipe.ustensils.forEach(( ustensil ) => {
                   if (ustensil.toLowerCase().includes(tag)) {
-                    return true;
+                    ustensilsMatching = true;
+
                   }
                 });
-            
+                return ustensilsMatching;
               })];
               console.log(recipeTab);
 
