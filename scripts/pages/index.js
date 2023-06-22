@@ -192,6 +192,10 @@ export function generateDropBox(data){
     appliancesBloc.innerHTML = '';
     ustensilsBloc.innerHTML = '';
 
+    let ingredientListTri = [];
+    let ustensilsListTri = [];
+    let appliancesListTri = [];
+
     data.forEach( recipe =>{
         /*console.log(recipe);*/
 
@@ -209,17 +213,17 @@ export function generateDropBox(data){
         recipe.ingredients.forEach (ingredient =>{
             /*console.log(ingredient.ingredient);*/
             /*console.log(ingredientsList.sort());*/
-            let ingredientListTri = ingredientsList.sort();
+            /*let ingredientListTri = ingredientsList.sort();*/
             /*ingredientListTri.filter((items,index) => ingredientListTri.indexOf(items === index))*/
-            console.log( ingredientListTri.filter((items,index) => ingredientListTri.indexOf(items === index)))
+            /*console.log( ingredientListTri.filter((items,index) => ingredientListTri.indexOf(items === index)))*/
             const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
-            if (ingredientListTri.includes(ingredient.ingredient.toLowerCase()) === false && itags.includes(ingredient) === false) {
-                ingredientListTri.push(ingredient.ingredient);
-                const filterListIngredients = document.createElement('li');
+            if (ingredientListTri.includes(ingredient.ingredient) === false && itags.includes(ingredient) === false) {
+                ingredientListTri.push(ingredient.ingredient.toLowerCase());
+                /*const filterListIngredients = document.createElement('li');
                 filterListIngredients.classList.add('filter__ingredients--items');
                 filterListIngredients.innerText = ingredient.ingredient;
                 ingredientsBloc.appendChild(filterListIngredients);
-                console.log(ingredientsBloc)
+                console.log(ingredientsBloc)*/
             }
         })
         
@@ -227,16 +231,36 @@ export function generateDropBox(data){
 
         const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
         recipe.ustensils.forEach (ustensil =>{
-            if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
-                ustensilsList.push(ustensil);
-                const filterItem = document.createElement('li');
-                filterItem.classList.add('filter__ustensils--items');
-                filterItem.innerText = ustensil;
-                ustensilsBloc.appendChild(filterItem);
+            if (ustensilsListTri.includes(ustensil) === false && utags.includes(ustensil) === false) {
+                ustensilsListTri.push(ustensil.toLowerCase());
             }
         })
 
     });
+    ingredientListTri.sort();
+    let ingredientListTriUnique = [...new Set(ingredientListTri)];
+    ingredientListTriUnique.forEach(ingredient =>{
+        const filterListIngredients = document.createElement('li');
+        filterListIngredients.classList.add('filter__ingredients--items');
+        filterListIngredients.innerText = ingredient;
+        ingredientsBloc.appendChild(filterListIngredients);
+    });
+
+    /*const filterListAppliances = document.createElement('li');
+    filterListAppliances.classList.add('filter__appliances--items');
+    filterListAppliances.innerText = recipe.appliance;
+    appliancesBloc.appendChild(filterListAppliances);*/
+
+    ustensilsListTri.sort();
+    let ustensilsListTriUnique = [...new Set(ustensilsListTri)];
+    ustensilsListTriUnique.forEach (ustensil =>{
+        const filterItem = document.createElement('li');
+        filterItem.classList.add('filter__ustensils--items');
+        filterItem.innerText = ustensil;
+        ustensilsBloc.appendChild(filterItem);
+    });
+
+
     addTagFilterIngredients();
     addTagFilterAppliances();
     addTagFilterUstensils();

@@ -1,4 +1,4 @@
-import { search } from "../utils/search_input.js"
+import { search } from "../utils/search_input_for.js"
 import { generateDropBox } from "../pages/index.js"
 import { recipes } from "../../data/recipes.js";
 import { displayData } from "../pages/index.js"
@@ -125,17 +125,17 @@ export function addTagFilterAppliances() {
           const tagApplianceContainer = document.createElement('div');
           tagApplianceContainer.setAttribute('class', 'tag__appliance text__Lato');
   
-          const tagAppliance = document.createElement('p');
-          tagAppliance.innerText = e.target.innerText;
-          tagAppliance.classList.add('tag-green');
+          /*const tagAppliance = document.createElement('p');*/
+          tagApplianceContainer.innerText = e.target.innerText;
+          tagApplianceContainer.classList.add('tag-green');
   
-          const deleteTagIcon = document.createElement('span');
-          deleteTagIcon.className = 'deleteIcon';
+          /*const deleteTagIcon = document.createElement('span');
+          deleteTagIcon.className = 'deleteIcon';*/
           
           const deleteIconImg = document.createElement('i');
           deleteIconImg.className = 'fa-solid fa-xmark';
 
-          deleteTagIcon.addEventListener('click', () => {
+          deleteIconImg.addEventListener('click', () => {
             const searchInput = document.querySelector(".search__input");
             tagApplianceContainer.remove();
             let recipeTab =  [];
@@ -193,9 +193,9 @@ export function addTagFilterAppliances() {
             return false;
           });
           tagApplianceWrapper.appendChild(tagApplianceContainer);
-          tagApplianceContainer.appendChild(tagAppliance);
-          tagApplianceContainer.appendChild(deleteTagIcon);
-          deleteTagIcon.appendChild(deleteIconImg);
+          /*tagApplianceContainer.appendChild(tagAppliance);
+          tagApplianceContainer.appendChild(deleteTagIcon);*/
+          tagApplianceContainer.appendChild(deleteIconImg);
           search();
         });
     });
@@ -210,17 +210,17 @@ export function addTagFilterUstensils() {
         const tagUstensilContainer = document.createElement('div');
         tagUstensilContainer.setAttribute('class', 'tag__ustensil text__Lato');
 
-        const tagUstensil = document.createElement('p');
-        tagUstensil.innerText = e.target.innerText;
-        tagUstensil.classList.add('tag-red');
+        /*const tagUstensil = document.createElement('p');*/
+        tagUstensilContainer.innerText = e.target.innerText;
+        tagUstensilContainer.classList.add('tag-red');
         
-        const deleteTagIcon = document.createElement('span');
-        deleteTagIcon.className = 'deleteIcon';
+        /*const deleteTagIcon = document.createElement('span');
+        deleteTagIcon.className = 'deleteIcon';*/
         
         const deleteIconImg = document.createElement('i');
         deleteIconImg.className = 'fa-solid fa-xmark';
 
-        deleteTagIcon.addEventListener('click', () => {
+        deleteIconImg.addEventListener('click', () => {
           const searchInput = document.querySelector(".search__input");
           tagUstensilContainer.remove();
           let recipeTab =  [];
@@ -279,9 +279,9 @@ export function addTagFilterUstensils() {
           return false;
         });
         tagUstensilWrapper.appendChild(tagUstensilContainer);
-        tagUstensilContainer.appendChild(tagUstensil);
-        tagUstensilContainer.appendChild(deleteTagIcon);
-        deleteTagIcon.appendChild(deleteIconImg);
+        /*tagUstensilContainer.appendChild(tagUstensil);
+        tagUstensilContainer.appendChild(deleteTagIcon);*/
+        tagUstensilContainer.appendChild(deleteIconImg);
         search();
       });
     });
@@ -326,7 +326,7 @@ export function filteredRecipesWithTags(recipesToFilter) {
     
     appliancesInTheRecipe.push(recipe.appliance);
     
-    ustensilsInTheRecipe = recipe.ustensils.map((ustensil) => ustensil);
+    ustensilsInTheRecipe = recipe.ustensils.map((ustensil) => ustensil.toLowerCase());
 
     console.log(recipe.name);
     console.log(ingredientsInTheRecipe);
@@ -350,7 +350,7 @@ export function filteredRecipesWithTags(recipesToFilter) {
     
     if (taggedUstensils.length > 0) {
       taggedUstensils.forEach((taggedUstensil) => {
-        if (ustensilsInTheRecipe.includes(taggedUstensil)) {
+        if (ustensilsInTheRecipe.includes(taggedUstensil.toLowerCase())) {
           ustensilsMatching += 1;
         }
       });

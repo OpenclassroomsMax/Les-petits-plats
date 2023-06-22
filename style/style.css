@@ -48,6 +48,11 @@ body {
 }
 
 /*tout les filtres*/
+i.fa-solid.fa-xmark {
+    border: solid;
+    border-radius: 50%;
+    font-size: 12px;
+}
 section.filters {
     display: flex;
     width: 75%;
@@ -56,6 +61,10 @@ section.filters {
 /*filtre ingredients*/
 .filters__ingredients {
     width: 20%; 
+}
+.filter__ingredients--view {
+    position: absolute;
+    width: 38%;
 }
 
 .filter__ingredients--bloc {
@@ -76,6 +85,7 @@ section.filters {
     align-items: center;
     justify-content: space-between;
     background: #3282F7;
+    border-radius: 5px 5px 0px 0px;
 }
 
 input.filter__ingredients--input {
@@ -84,6 +94,7 @@ input.filter__ingredients--input {
     background-color: #3282F7;
     height: 35px;
     margin-left: 10px;
+    color: white;
 }
 i.fa-solid.fa-chevron-up.filter__ingredients--chevronUp {
     color: white;
@@ -93,19 +104,17 @@ ul.filter__ingredients--list {
     list-style-type: none;
     overflow: scroll;
     max-height: 250px;
-    position: absolute;
     flex-wrap: wrap;
-    width: 38%;
     margin-top: 0px;
     padding: 0px;
     font-weight: 400;
+    border-radius: 0px 0px 5px 5px;
 }
 li.filter__ingredients--items {
     width: 30%;
     margin-top: 15px;
     margin-left: 10px;
     color: white;
-
 }
 .tag__ingredient {
     background-color: #3282F7;
@@ -121,6 +130,10 @@ li.filter__ingredients--items {
     justify-content: space-around;
 }
 /*filtre appareils*/
+.filter__appliances--view {
+    position: absolute;
+    width: 38%;
+}
 .filters__appliances {
     width: 20%;
     margin-left: 20px;
@@ -142,7 +155,7 @@ li.filter__ingredients--items {
     align-items: center;
     justify-content: space-between;
     background-color: #68D9A4;
-
+    border-radius: 5px 5px 0px 0px;
 }
 input.filter__appliances--input {
     width: 100%;
@@ -150,6 +163,8 @@ input.filter__appliances--input {
     background-color: #68D9A4;
     height: 35px;
     margin-left: 10px;
+    color: white;
+
 }
 i.fa-solid.fa-chevron-up.filter__appliances--chevronUp {
     color: white;
@@ -159,19 +174,17 @@ ul.filter__appliances--list {
     list-style-type: none;
     overflow: scroll;
     max-height: 250px;
-    position: absolute;
     flex-wrap: wrap;
-    width: 38%;
     margin-top: 0px;
     padding: 0px;
     font-weight: 400;
+    border-radius: 0px 0px 5px 5px;
 }
 li.filter__appliances--items {
     width: 30%;
     margin-top: 15px;
     margin-left: 10px;
     color: white;
-
 }
 .tag__appliance {
     background-color: #68D9A4;
@@ -186,8 +199,13 @@ li.filter__appliances--items {
     align-items: center;
     justify-content: space-around;
 }
+
 /*filtre ustensils*/
-.filters__ustensils {
+.filter__ustensils--view {
+    position: absolute;
+    width: 38%;
+}
+.filters__ustensils { 
     width: 20%;
     margin-left: 20px;
 }
@@ -208,7 +226,7 @@ li.filter__appliances--items {
     align-items: center;
     justify-content: space-between;
     background-color: #ED6454;
-
+    border-radius: 5px 5px 0px 0px;
 }
 input.filter__ustensils--input {
     width: 100%;
@@ -216,6 +234,7 @@ input.filter__ustensils--input {
     background-color: #ED6454;
     height: 35px;
     margin-left: 10px;
+    color: white;
 }
 i.fa-solid.fa-chevron-up.filter__ustensils--chevronUp {
     color: white;
@@ -225,12 +244,11 @@ ul.filter__ustensils--list {
     list-style-type: none;
     overflow: scroll;
     max-height: 250px;
-    position: absolute;
     flex-wrap: wrap;
-    width: 38%;
     margin-top: 0px;
     padding: 0px;
     font-weight: 400;
+    border-radius: 0px 0px 5px 5px;
 }
 li.filter__ustensils--items {
     width: 30%;
@@ -256,6 +274,7 @@ section.recipes__cards--all {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
 }
 .recipes__cards {
     width: 27%;

@@ -61,12 +61,12 @@ export function search() {
     noResultMessage.innerHTML = "<p>Aucune recette ne correspond</p>";
   }
 
-  /*if (searchInput.value === "" || searchInput.value.length < 3) {
+  if (searchInput.value === "" || searchInput.value.length < 3) {
     console.log("4");
-
+    generateDropBox(recipes);
     displayData(recipes);
     noResultMessage.innerHTML = "";
-  }*/
+  }
 }
 
 let timer;
