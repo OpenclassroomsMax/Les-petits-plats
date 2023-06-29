@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <link href="style/style.css" rel="stylesheet" type="text/css" />
-        <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
-        <script
-            src="https://kit.fontawesome.com/545163d5d6.js"
-            crossorigin="anonymous"
-        ></script>
+  <head>
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/545163d5d6.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Les petits plats</title>
-    </head>
-    <body>
-        <header class="header__blocs">
-            <img class="header__logo" src="./style/assets/Logo.png" alt="Logo les petits plats">
-            <h1 class="header__title text__DMSans">Les petits plats</h1>
-        </header>
-        <main>
-            <section class="section__search">
-                <!-- Bar de recherche -->
-                <input class="search__input text__Lato" type="text" placeholder="Rechercher une recette">
-                <button class="search__button"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
-            </section>
-            <section class="tags">
-                <!-- Tags -->
-                <div class="tag__ingredients"></div>
-                <div class="tag__appliances"></div>
-                <div class="tag__ustensils"></div>
-            </section>
-            <section class="filters">
-                <!-- Filtres -->
-                <div class="filters__ingredients"></div>
-                <div class="filters__appliances"></div>
-                <div class="filters__ustensils"></div>
-            </section>
+  </head>
+  <body>
+    <header class="header__blocs">
+      <img
+        class="header__logo"
+        src="./style/assets/Logo.png"
+        alt="Logo les petits plats"
+      />
+      <h1 class="header__title text__DMSans">Les petits plats</h1>
+    </header>
+    <main>
+      <section class="section__search">
+        <!-- Bar de recherche -->
+        <input
+          class="search__input text__Lato"
+          type="text"
+          placeholder="Rechercher une recette"
+        />
+        <button class="search__button">
+          <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        </button>
+      </section>
+      <section class="tags">
+        <!-- Tags -->
+        <div class="tag__ingredients"></div>
+        <div class="tag__appliances"></div>
+        <div class="tag__ustensils"></div>
+      </section>
+      <section class="filters">
+        <!-- Filtres -->
+        <div class="filters__ingredients"></div>
+        <div class="filters__appliances"></div>
+        <div class="filters__ustensils"></div>
+      </section>
 
-            <section class="recipes__cards--all">
-                <!-- Cartes des recettes-->
-            </section>
+      <section class="recipes__cards--all">
+        <!-- Cartes des recettes-->
+      </section>
 
-            <span class="no-result-message"></span>
-        </main>
-        <script type="module" src="./data/recipes.js"></script>
-        <script type="module" src="./scripts/factories/recipes.js"></script>
-        <script type="module" src="./scripts/pages/index.js"></script>
-        <!--<script type="module" src="./scripts/utils/search_input.js"></script>-->
-        <script type="module" src="./scripts/factories/filters.js"></script>
-        <script type="module" src="./scripts/utils/search_input_for.js"></script>
-        <script type="module" src="./scripts/utils/filters_inputs.js"></script>
-        <script type="module" src="./scripts/utils/tags.js" ></script>
-
-    </body>
+      <span class="no-result-message"></span>
+    </main>
+    <script type="module" src="./data/recipes.js"></script>
+    <script type="module" src="./scripts/factories/recipes.js"></script>
+    <script type="module" src="./scripts/pages/index.js"></script>
+    <script type="module" src="./scripts/utils/search_input.js"></script>
+    <script type="module" src="./scripts/factories/filters.js"></script>
+    <!--<script type="module" src="./scripts/utils/search_input_for.js"></script>-->
+    <script type="module" src="./scripts/utils/filters_inputs.js"></script>
+    <script type="module" src="./scripts/utils/tags.js"></script>
+  </body>
 </html>
