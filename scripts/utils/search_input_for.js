@@ -11,10 +11,8 @@ export function search() {
   let tagsUsed = false;
   let recipesToDisplay = [];
   let contentInput;
-  console.log(searchInput.value.length);
   if (searchInput.value.length > 2) {
     contentInput = searchInput.value.trim().toLowerCase();
-    console.log(recipes);
 
     for (let i = 0; i < recipes.length; i++) {
       let recipeIsMatching = false;
@@ -24,8 +22,6 @@ export function search() {
         recipeIsMatching = true;
       }
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
-        console.log(recipes[i].ingredients[j].ingredient.toLowerCase());
-        console.log(contentInput);
         if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(contentInput)) {
           recipeIsMatching = true;
         }
@@ -36,7 +32,6 @@ export function search() {
     }
     
   }
-  console.log(document.querySelectorAll('.tag__ingredient'));
   if (Array.from(document.querySelectorAll('.tag__ingredient')).length > 0
   || Array.from(document.querySelectorAll('.tag__appliance')).length > 0
   || Array.from(document.querySelectorAll('.tag__ustensil')).length > 0) {
@@ -49,22 +44,17 @@ export function search() {
   }
   if (recipesToDisplay.length > 0) {
     noResultMessage.innerHTML = "";
-    console.log("2");
     generateDropBox(recipesToDisplay);
     displayData(recipesToDisplay);
   } else {
-    console.log("3");
     displayData(recipes);
-    /*generateDropBox(recipes);*/
     noResultMessage.innerHTML = "<p>Aucune recette ne correspond</p>";
   }
 
-  /*if (searchInput.value === "" || searchInput.value.length < 3) {
-    console.log("4");
-    displayData(recipes);
-    generateDropBox(recipes);
+  if (searchInput.value === "" || searchInput.value.length < 3) {
+    generateDropBox(recipesToDisplay);
     noResultMessage.innerHTML = "";
-  }*/
+  }
 }
 
 let timer;

@@ -33,11 +33,8 @@ export class Recipe{
     /*Création de la liste des ingrediants pour l'affichache */
     createIngrediants(){
         let html = ""
-        /*console.log(this._ingredients)*/
         this._ingredients.forEach(element => {
-            /*console.log(element)*/
             
-            let ingredient = ""
             let quantity = ""
             let unit = ""
             if(element.unit){
@@ -48,7 +45,6 @@ export class Recipe{
             }
             html += `${element.ingredient} : ${quantity}${unit} <br>`
         });
-        /*console.log(html)*/
         return html
     }
 
